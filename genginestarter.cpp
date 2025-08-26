@@ -63,9 +63,9 @@ int main(int argc, char* argv[]) {
 
     Player player;
 
-    SDL_Texture* wallTexture = loadTexture("wall.png", renderer);
-    SDL_Texture* floorTexture = loadTexture("floor.png", renderer);
-    SDL_Texture* ceilingTexture = loadTexture("ceiling.png", renderer);
+    SDL_Texture* wallTexture = loadTexture("Textures/wall.png", renderer);
+    SDL_Texture* floorTexture = loadTexture("Textures/floor.png", renderer);
+    SDL_Texture* ceilingTexture = loadTexture("Textures/ceiling.png", renderer);
 
     bool running = true;
     Uint32 lastTime = SDL_GetTicks();
