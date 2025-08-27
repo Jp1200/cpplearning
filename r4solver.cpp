@@ -4,14 +4,17 @@
 
 
 //sample function 
-float dydx(float x , float y){
-  return((x-y)/2);
+double dydx(double t , double y){
+  return((t-y)/2);
 }
-float rk4(float x0, float y0, float x, float step_size, float (*func)(float, float)){
-  float k1, k2, k3, k4;
+// Here y is an unknown function(scalar or vector) of time t, which we would like to approximate;
+// the dy/dt, the rate at which y changes, is a function  of t and of y itself.
+//
+double rk4(double x0, double y0, double x, double step_size, double (*func)(double, double)){
+  double k1, k2, k3, k4;
   int n = (int)((x-x0) / step_size); 
   //initial values of time x, and value y 
-  float y = y0;
+  double y = y0;
   
   for(int i = 1; i <= n; ++i){
     
@@ -29,7 +32,8 @@ float rk4(float x0, float y0, float x, float step_size, float (*func)(float, flo
 }
 int  main (int argc, char *argv[]) {
   //Drive this function for testing
-  float x0 = 0, y = 1, x = 2 , h = 0.2;
+  double x0 = 0, y = 1, x = 2 , h = 0.2;
+  std::vector<double> dubVector(3);
   std::cout << "The value of y at x is: " << rk4(x0,y,x,h,dydx) << std::endl;
   return 0;
 }
